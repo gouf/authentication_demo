@@ -1,0 +1,15 @@
+.container
+  .row
+    h1 Users#index
+    p Find me in app/views/users/index.html.slim
+  .row
+    table.table.table-striped
+      tr
+        th Email Address
+        th Password
+      - @users.each do |user|
+        tr
+          td = user.email
+          td = user.password
+  .row
+    = link_to 'New', new_user_path

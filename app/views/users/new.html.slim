@@ -1,0 +1,13 @@
+.container
+  .row
+    h1 Create New User
+  .row
+    = form_for(@user) do |f|
+      .form-group
+        = f.label :email
+        = f.text_field :email, class: %w(form-control)
+      .form-group
+        = f.label :password
+        = f.text_field :password, class: %w(form-control), type: 'password'
+      .form-group
+        = f.submit('submit', class: %w(btn btn-primary))
