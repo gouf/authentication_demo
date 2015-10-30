@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
     require 'digest'
     self.password = Digest::SHA256.hexdigest(password)
   end
+
+  def authenticate(string)
+    require 'digest'
+    input_password = Digest::SHA256.hexdigest(string)
+    password.eql?(input_password)
+  end
 end

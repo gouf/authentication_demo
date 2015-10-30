@@ -3,6 +3,18 @@
     h1 Users#index
     p Find me in app/views/users/index.html.slim
   .row
+    .col-md-3
+      = form_tag login_path, class: %w(form)
+        .form-group
+          = label_tag :email
+          = text_field_tag :email, '', class: %w(form-control)
+        .form-group
+          = label_tag :password
+          = text_field_tag :password, '', type: 'password', class: %w(form-control)
+        .form-group
+          = submit_tag 'Login', class: %w(btn btn-primary)
+    .col-md-offset-8
+  .row
     table.table.table-striped
       tr
         th Email Address

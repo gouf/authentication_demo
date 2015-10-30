@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @user = User.new
     @users = User.all
   end
 
@@ -23,6 +24,12 @@ class UsersController < ApplicationController
   end
 
   def login
+    user = User.find_by_email(params[:email])
+    if user.try(:authenticate, params[:password])
+      @login = 'Login succeed'
+    else
+      redirect_to :back
+    end
   end
 
   def logout
