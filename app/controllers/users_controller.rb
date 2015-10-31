@@ -36,6 +36,9 @@ class UsersController < ApplicationController
   end
 
   def logout
+    session[:user_id] = nil
+    @current_user = nil
+    redirect_to :back
   end
 
   private
