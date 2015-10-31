@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    logout
   end
 
   def login
@@ -36,6 +37,9 @@ class UsersController < ApplicationController
   end
 
   def logout
+    session[:user_id] = nil
+    @current_user = nil
+    redirect_to :back
   end
 
   private
