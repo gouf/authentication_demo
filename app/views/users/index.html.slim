@@ -3,7 +3,9 @@
     .navbar.navbar-default.navbar-static-top
       .container
         - if @current_user
-          p.navbar-text = User.find_by_id(@current_user).email
+          p.navbar-text
+            |Logged in by:&nbsp;
+            = User.find_by_id(@current_user).email
 .container
   .row
     h1 Users#index
