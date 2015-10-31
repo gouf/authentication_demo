@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :current_user, only: [:index]
+
   def index
     @user = User.new
     @users = User.all
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
     user = User.find_by_email(params[:email])
     if user.try(:authenticate, params[:password])
       @login = 'Login succeed'
+      session[:user_id] = user.id
     else
       redirect_to :back
     end
@@ -39,5 +42,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def current_user
+    @current_user = session[:user_id]
   end
 end
