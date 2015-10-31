@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    logout
   end
 
   def login
