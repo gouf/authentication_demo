@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
 
   post 'users/login', controller: 'users#login', as: 'login'
+  delete  'users/logout', controller: 'users#logout', as: 'logout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
