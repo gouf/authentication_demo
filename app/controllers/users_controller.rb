@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    User.destroy(params[:id]) if params[:id].present?
     logout
   end
 

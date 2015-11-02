@@ -28,9 +28,11 @@
       tr
         th Email Address
         th Password
+        th Action
       - @users.each do |user|
         tr
           td = user.email
           td = user.password
+          td = link_to 'Delete', {action: :destroy, id: user.id}, method: :delete
   .row
     = link_to 'New', new_user_path
