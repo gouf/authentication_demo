@@ -33,6 +33,9 @@
         tr
           td = user.email
           td = user.password
-          td = link_to 'Delete', {action: :destroy, id: user.id}, method: :delete
+          td
+            = link_to 'Edit', edit_user_path(user.id)
+            |&nbsp;/&nbsp;
+            = link_to 'Delete', {action: :destroy, id: user.id}, method: :delete
   .row
     = link_to 'New', new_user_path

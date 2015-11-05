@@ -1,0 +1,11 @@
+.container
+  .row
+    = form_for(@user, html: {class: %w(form)}) do |f|
+      .form-group
+        = f.label :email
+        = f.text_field :email, class: %w(form-control)
+      .form-group
+        = f.label :password
+        = f.text_field :password, type: :password, class: %w(form-control)
+      .form-group
+        = f.submit 'update', class: %w(btn btn-primary)
